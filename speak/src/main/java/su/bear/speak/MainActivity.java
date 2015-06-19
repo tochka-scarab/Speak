@@ -4,14 +4,30 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity
+{
+    private Button btnSpeak;
+    private TextView edText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btnSpeak = (Button)findViewById(R.id.btnSpeak);
+        edText = (TextView)findViewById(R.id.edText);
+    }
+
+    public void buttonClick(View view)
+    {
+        //new TextPlayer("").start;
+        Toast.makeText(getApplicationContext(), edText.getText().toString(), Toast.LENGTH_LONG).show();
+        new TextPlayer(edText.getText().toString()).start();
     }
 
     @Override
